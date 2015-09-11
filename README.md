@@ -1,7 +1,23 @@
 # docker-app
 
+1) Create a directory named node-docker
 
-Use the following docker file 
+2) Create a file named start.sh with the following contents 
+
+```
+cd /tmp
+rm -rf docker-app; true
+
+git clone https://github.com/jmcdonald69124/docker-app.git
+
+cd docker-app
+
+npm install
+
+node .
+```
+
+3) Create the Dockerfile in the node-docker directory and add the following code 
 
 ```
 FROM ubuntu:14.04
@@ -24,3 +40,5 @@ CMD ./tmp/start.sh
 #  docker run  -i -t -p 3000  node-test
 
 ```
+
+4) Build the image using the following command ```docker build -t node-test node-docker/``` (this assumes that you are one folder above the node-docker directory )
